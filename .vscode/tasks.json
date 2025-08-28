@@ -1,0 +1,10 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Run test.py in Alacritty",
+            "type": "shell",
+            "command": "open -a Alacritty --args -e bash -c 'python3 ${file}; echo; echo \"[Finished] Press Enter to close...\"; read line'"
+        }
+    ]
+}
