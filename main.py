@@ -1,4 +1,4 @@
-from func import Player, create_deck, create_at_deck, player_turn, check_victory
+from func import Player, create_deck, create_at_deck, player_turn, enemy_turn, check_victory
 import random
 
 def start_match():
@@ -23,9 +23,20 @@ def start_match():
         print(f"\n=== ターン {turn_count} ===")
         for p_idx, player in enumerate(turn_order):
             opponent = turn_order[1 - p_idx]
+
+            # func.pyで定義したplayer_turnを呼ぶ
             player_turn(player, opponent, at_deck)
+
+            # 勝利条件チェック
             if check_victory(player):
                 return
+            
+            enemy_turn(enemy,opponent,at_deck)
+
+            if check_victory(player):
+                return
+
+
         turn_count += 1
         if turn_count > 50:
             print("\nターン制限に達しました。引き分けです。")
@@ -55,3 +66,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+

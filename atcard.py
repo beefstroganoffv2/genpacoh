@@ -1,3 +1,7 @@
+from typing import Callable
+from effect import * 
+
+
 class ATCard:
     def __init__(self, kind: str):
         """
